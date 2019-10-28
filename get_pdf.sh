@@ -19,3 +19,11 @@ rm *.jpg
 pdftk *.pdf cat output combined.pdf
 
 
+#ls ./*.jpg | xargs -L1 -I {} convert {} -colorspace Gray -quality 10 -density 300 -fill white -fuzz 40% +opaque "#000000" -density 300 {}.png
+
+
+#ls ./*.jpg | xargs -L1 -I {} convert {} +dither -colors 2 -type bilevel -density 300 -fill white -fuzz 40% +opaque "#000000" -density 300 {}.m.png
+
+#ls ./*.png | xargs -L1 -I {} convert {} -strip -interlace JPEG -sampling-factor 4:2:0 -adaptive-resize 40%   -gaussian-blur 0.05 -colorspace Gray -quality 10 -density 300 {}.jpg
+
+
