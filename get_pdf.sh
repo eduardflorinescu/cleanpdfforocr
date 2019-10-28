@@ -27,3 +27,8 @@ pdftk *.pdf cat output combined.pdf
 #ls ./*.png | xargs -L1 -I {} convert {} -strip -interlace JPEG -sampling-factor 4:2:0 -adaptive-resize 40%   -gaussian-blur 0.05 -colorspace Gray -quality 10 -density 300 {}.jpg
 
 
+#ls ./*.png | xargs -L1 -I {} convert {} -compress JBIG2 {}.jbig2
+#ls -1 ./*jbig2 | xargs -L1 -I {} img2pdf {} -o {}.pdf
+
+
+
